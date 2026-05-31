@@ -1,0 +1,23 @@
+{
+  "name": "CaroCakes",
+  "short_name": "CaroCakes",
+  "description": "Torturi personalizate la comandă în Chișinău.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fff8ee",
+  "theme_color": "#482511",
+  "lang": "ro-MD",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

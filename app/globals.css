@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ivory: #fff8ee;
+  --cream: #f6e6d2;
+  --beige: #e9cdb4;
+  --blush: #d99b91;
+  --chocolate: #482511;
+  --cocoa: #6f3c20;
+  --ganache: #2c160c;
+  --gold: #c79a57;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--ivory);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--chocolate);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(217, 155, 145, 0.22), transparent 28rem),
+    radial-gradient(circle at 82% 4%, rgba(199, 154, 87, 0.18), transparent 24rem),
+    linear-gradient(180deg, #fff8ee 0%, #f8ead8 44%, #fffaf2 100%);
+  font-family: Avenir Next, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body::selection {
+  color: var(--ivory);
+  background: var(--cocoa);
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+}
+
+.font-script {
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(145deg, rgba(255, 248, 238, 0.72), rgba(246, 230, 210, 0.34));
+  box-shadow: 0 30px 90px rgba(72, 37, 17, 0.12);
+  backdrop-filter: blur(22px);
+}
+
+.gold-line {
+  background: linear-gradient(90deg, transparent, rgba(199, 154, 87, 0.9), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
