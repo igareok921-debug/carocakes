@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import CaroCakesAssistant from "@/components/CaroCakesAssistant";
 import { homeDescription, homeTitle, ogImagePath, seoKeywords, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
@@ -73,13 +74,18 @@ export const viewport: Viewport = {
   colorScheme: "light"
 };
 
+function getHtmlLang() {
+  const pathname = headers().get("x-pathname") || "";
+  return pathname.startsWith("/ru") ? "ru" : "ro";
+}
+
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ro">
+    <html lang={getHtmlLang()}>
       <body>
         {children}
         <CaroCakesAssistant />
