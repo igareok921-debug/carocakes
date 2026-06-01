@@ -608,23 +608,23 @@ export const translations: Record<Locale, Translation> = {
       cardText: "Compoziții fine, proporții elegante și decor adaptat poveștii tale.",
       cardBadge: "CaroCakes atelier",
       items: [
-        { title: "Torturi aniversare", image: "/optimized/torturi-aniversare-carocakes.jpg", alt: "Tort aniversar personalizat creat de CaroCakes în Chișinău" },
-        { title: "Torturi pentru nuntă", image: "/optimized/torturi-nunta-carocakes.jpg", alt: "Tort elegant pentru nuntă în Chișinău cu flori delicate" },
-        { title: "Torturi pentru botez", image: "/optimized/torturi-botez-carocakes.jpg", alt: "Tort pentru botez personalizat în Chișinău" },
-        { title: "Torturi personalizate", image: "/optimized/torturi-personalizate-carocakes.jpg", alt: "Tort personalizat la comandă în Chișinău" },
-        { title: "Torturi minimaliste", image: "/optimized/torturi-minimaliste-carocakes.jpg", alt: "Tort minimalist la comandă creat de CaroCakes" },
-        { title: "Torturi luxury", image: "/optimized/torturi-luxury-carocakes.jpg", alt: "Tort luxury pentru eveniment special în Chișinău" }
+        { title: "Torturi aniversare", image: "/transparent/torturi-aniversare-carocakes.png", alt: "Tort aniversar personalizat creat de CaroCakes în Chișinău" },
+        { title: "Torturi pentru nuntă", image: "/transparent/torturi-nunta-carocakes.png", alt: "Tort elegant pentru nuntă în Chișinău cu flori delicate" },
+        { title: "Torturi pentru botez", image: "/transparent/torturi-botez-carocakes.png", alt: "Tort pentru botez personalizat în Chișinău" },
+        { title: "Torturi personalizate", image: "/transparent/torturi-personalizate-carocakes.png", alt: "Tort personalizat la comandă în Chișinău" },
+        { title: "Torturi minimaliste", image: "/transparent/torturi-minimaliste-carocakes.png", alt: "Tort minimalist la comandă creat de CaroCakes" },
+        { title: "Torturi luxury", image: "/transparent/torturi-luxury-carocakes.png", alt: "Tort luxury pentru eveniment special în Chișinău" }
       ]
     },
     dessertsSection: {
       eyebrow: "Deserturi & prăjituri",
       title: "Candy bar și deserturi pentru evenimente în Chișinău",
       items: [
-        { title: "Macarons", image: "/optimized/macarons-carocakes.jpg", alt: "Macarons pentru candy bar și evenimente în Chișinău" },
-        { title: "Cupcakes", image: "/optimized/cupcakes-carocakes.jpg", alt: "Cupcakes personalizate pentru evenimente în Chișinău" },
-        { title: "Prăjituri individuale", image: "/optimized/prajituri-individuale-carocakes.jpg", alt: "Prăjituri individuale elegante pentru candy bar în Chișinău" },
-        { title: "Biscuiți fini", image: "/optimized/biscuiti-fini-carocakes.jpg", alt: "Biscuiți fini pentru candy bar și cadouri dulci" },
-        { title: "Candy bar", image: "/optimized/candy-bar-carocakes.jpg", alt: "Candy bar cu macarons și prăjituri individuale pentru eveniment" }
+        { title: "Macarons", image: "/transparent/macarons-carocakes.png", alt: "Macarons pentru candy bar și evenimente în Chișinău" },
+        { title: "Cupcakes", image: "/transparent/cupcakes-carocakes.png", alt: "Cupcakes personalizate pentru evenimente în Chișinău" },
+        { title: "Prăjituri individuale", image: "/transparent/prajituri-individuale-carocakes.png", alt: "Prăjituri individuale elegante pentru candy bar în Chișinău" },
+        { title: "Biscuiți fini", image: "/transparent/biscuiti-fini-carocakes.png", alt: "Biscuiți fini pentru candy bar și cadouri dulci" },
+        { title: "Candy bar", image: "/transparent/candy-bar-carocakes.png", alt: "Candy bar cu macarons și prăjituri individuale pentru eveniment" }
       ]
     },
     orderSteps: {
@@ -641,11 +641,11 @@ export const translations: Record<Locale, Translation> = {
       tiktokCta: "Video pe TikTok",
       cardBadge: "CaroCakes",
       items: [
-        { title: "Money cake couture", text: "Ciocolată, aur și detalii spectaculoase", image: "/optimized/tort-luxury-auriu-carocakes.jpg", alt: "Tort luxury la comandă cu decor de ciocolată și aur" },
-        { title: "Birthday statement", text: "Volum, contrast și accente metalice", image: "/optimized/tort-aniversar-statement-carocakes.jpg", alt: "Tort aniversar statement cu decor personalizat" },
-        { title: "Blush celebration", text: "Roz delicat pentru momente tandre", image: "/optimized/tort-roz-copii-carocakes.jpg", alt: "Tort roz cu flori pentru aniversare în Chișinău" },
-        { title: "Fairy garden", text: "Flori fine și decor de poveste", image: "/TORT4.png", alt: "Tort personalizat cu decor floral de poveste" },
-        { title: "Candy concept", text: "Creat pentru evenimentul tău", image: "/TORT3.png", alt: "Tort personalizat pentru copii și evenimente de familie" }
+        { title: "Money cake couture", text: "Ciocolată, aur și detalii spectaculoase", image: "/transparent/tort-luxury-auriu-carocakes.png", alt: "Tort luxury la comandă cu decor de ciocolată și aur" },
+        { title: "Birthday statement", text: "Volum, contrast și accente metalice", image: "/transparent/tort-aniversar-statement-carocakes.png", alt: "Tort aniversar statement cu decor personalizat" },
+        { title: "Blush celebration", text: "Roz delicat pentru momente tandre", image: "/transparent/tort-roz-copii-carocakes.png", alt: "Tort roz cu flori pentru aniversare în Chișinău" },
+        { title: "Fairy garden", text: "Flori fine și decor de poveste", image: "/transparent/tort-fairy-garden-carocakes.png", alt: "Tort personalizat cu decor floral de poveste" },
+        { title: "Candy concept", text: "Creat pentru evenimentul tău", image: "/transparent/tort-candy-concept-carocakes.png", alt: "Tort personalizat pentru copii și evenimente de familie" }
       ]
     },
     reels: {
@@ -657,21 +657,21 @@ export const translations: Record<Locale, Translation> = {
         {
           title: "Choux au craquelin",
           text: "Cu creme patissiere, textură crocantă și cremă fină pregătită în atelier.",
-          image: "/optimized/choux-craquelin-carocakes.jpg",
+          image: "/transparent/choux-craquelin-carocakes.png",
           alt: "Choux au craquelin cu creme patissiere pregătit de CaroCakes",
           url: "https://www.instagram.com/reel/DYj-8X6IPlo/"
         },
         {
           title: "Procesul de pregătire unui tort",
           text: "Etape din atelier, de la detalii fine până la forma finală.",
-          image: "/optimized/proces-pregatire-tort-carocakes.jpg",
+          image: "/transparent/proces-pregatire-tort-carocakes.png",
           alt: "Procesul de pregătire a unui tort personalizat CaroCakes",
           url: "https://www.instagram.com/reel/DYT4hdHoIeq/"
         },
         {
           title: "Macarons cube",
           text: "Macarons aranjate elegant pentru un cadou dulce și memorabil.",
-          image: "/optimized/macarons-cube-carocakes.jpg",
+          image: "/transparent/macarons-cube-carocakes.png",
           alt: "Macarons cube pentru cadou dulce și candy bar",
           url: "https://www.instagram.com/reel/DVQ4YCkiLsc/"
         }
@@ -1132,23 +1132,23 @@ export const translations: Record<Locale, Translation> = {
       cardText: "Тонкие композиции, элегантные пропорции и декор, адаптированный под вашу историю.",
       cardBadge: "CaroCakes atelier",
       items: [
-        { title: "Торты на день рождения", image: "/optimized/torturi-aniversare-carocakes.jpg", alt: "Торт на день рождения от CaroCakes в Кишиневе" },
-        { title: "Свадебные торты", image: "/optimized/torturi-nunta-carocakes.jpg", alt: "Элегантный свадебный торт в Кишиневе с нежными цветами" },
-        { title: "Торты на крещение", image: "/optimized/torturi-botez-carocakes.jpg", alt: "Индивидуальный торт на крещение в Кишиневе" },
-        { title: "Индивидуальные торты", image: "/optimized/torturi-personalizate-carocakes.jpg", alt: "Индивидуальный торт на заказ в Кишиневе" },
-        { title: "Минималистичные торты", image: "/optimized/torturi-minimaliste-carocakes.jpg", alt: "Минималистичный торт на заказ от CaroCakes" },
-        { title: "Luxury торты", image: "/optimized/torturi-luxury-carocakes.jpg", alt: "Luxury торт для особого события в Кишиневе" }
+        { title: "Торты на день рождения", image: "/transparent/torturi-aniversare-carocakes.png", alt: "Торт на день рождения от CaroCakes в Кишиневе" },
+        { title: "Свадебные торты", image: "/transparent/torturi-nunta-carocakes.png", alt: "Элегантный свадебный торт в Кишиневе с нежными цветами" },
+        { title: "Торты на крещение", image: "/transparent/torturi-botez-carocakes.png", alt: "Индивидуальный торт на крещение в Кишиневе" },
+        { title: "Индивидуальные торты", image: "/transparent/torturi-personalizate-carocakes.png", alt: "Индивидуальный торт на заказ в Кишиневе" },
+        { title: "Минималистичные торты", image: "/transparent/torturi-minimaliste-carocakes.png", alt: "Минималистичный торт на заказ от CaroCakes" },
+        { title: "Luxury торты", image: "/transparent/torturi-luxury-carocakes.png", alt: "Luxury торт для особого события в Кишиневе" }
       ]
     },
     dessertsSection: {
       eyebrow: "Десерты & сладости",
       title: "Кенди бар и десерты для событий в Кишиневе",
       items: [
-        { title: "Макаронс", image: "/optimized/macarons-carocakes.jpg", alt: "Макаронс для кенди-бара и событий в Кишиневе" },
-        { title: "Капкейки", image: "/optimized/cupcakes-carocakes.jpg", alt: "Капкейки на заказ для событий в Кишиневе" },
-        { title: "Индивидуальные десерты", image: "/optimized/prajituri-individuale-carocakes.jpg", alt: "Индивидуальные десерты для кенди-бара в Кишиневе" },
-        { title: "Печенье", image: "/optimized/biscuiti-fini-carocakes.jpg", alt: "Нежное печенье для кенди-бара и сладких подарков" },
-        { title: "Кенди бар", image: "/optimized/candy-bar-carocakes.jpg", alt: "Кенди бар с макаронс и индивидуальными десертами для события" }
+        { title: "Макаронс", image: "/transparent/macarons-carocakes.png", alt: "Макаронс для кенди-бара и событий в Кишиневе" },
+        { title: "Капкейки", image: "/transparent/cupcakes-carocakes.png", alt: "Капкейки на заказ для событий в Кишиневе" },
+        { title: "Индивидуальные десерты", image: "/transparent/prajituri-individuale-carocakes.png", alt: "Индивидуальные десерты для кенди-бара в Кишиневе" },
+        { title: "Печенье", image: "/transparent/biscuiti-fini-carocakes.png", alt: "Нежное печенье для кенди-бара и сладких подарков" },
+        { title: "Кенди бар", image: "/transparent/candy-bar-carocakes.png", alt: "Кенди бар с макаронс и индивидуальными десертами для события" }
       ]
     },
     orderSteps: {
@@ -1165,11 +1165,11 @@ export const translations: Record<Locale, Translation> = {
       tiktokCta: "Видео в TikTok",
       cardBadge: "CaroCakes",
       items: [
-        { title: "Money cake couture", text: "Шоколад, золото и эффектные детали", image: "/optimized/tort-luxury-auriu-carocakes.jpg", alt: "Luxury торт на заказ с шоколадом и золотым декором" },
-        { title: "Birthday statement", text: "Объем, контраст и металлические акценты", image: "/optimized/tort-aniversar-statement-carocakes.jpg", alt: "Торт на день рождения с индивидуальным декором" },
-        { title: "Blush celebration", text: "Нежный розовый для теплых моментов", image: "/optimized/tort-roz-copii-carocakes.jpg", alt: "Розовый торт с цветами для дня рождения в Кишиневе" },
-        { title: "Fairy garden", text: "Цветы и сказочный декор", image: "/TORT4.png", alt: "Индивидуальный торт со сказочным цветочным декором" },
-        { title: "Candy concept", text: "Создан для вашего события", image: "/TORT3.png", alt: "Индивидуальный детский торт для семейного события" }
+        { title: "Money cake couture", text: "Шоколад, золото и эффектные детали", image: "/transparent/tort-luxury-auriu-carocakes.png", alt: "Luxury торт на заказ с шоколадом и золотым декором" },
+        { title: "Birthday statement", text: "Объем, контраст и металлические акценты", image: "/transparent/tort-aniversar-statement-carocakes.png", alt: "Торт на день рождения с индивидуальным декором" },
+        { title: "Blush celebration", text: "Нежный розовый для теплых моментов", image: "/transparent/tort-roz-copii-carocakes.png", alt: "Розовый торт с цветами для дня рождения в Кишиневе" },
+        { title: "Fairy garden", text: "Цветы и сказочный декор", image: "/transparent/tort-fairy-garden-carocakes.png", alt: "Индивидуальный торт со сказочным цветочным декором" },
+        { title: "Candy concept", text: "Создан для вашего события", image: "/transparent/tort-candy-concept-carocakes.png", alt: "Индивидуальный детский торт для семейного события" }
       ]
     },
     reels: {
@@ -1181,21 +1181,21 @@ export const translations: Record<Locale, Translation> = {
         {
           title: "Choux au craquelin",
           text: "С creme patissiere, хрустящей текстурой и нежным кремом из мастерской.",
-          image: "/optimized/choux-craquelin-carocakes.jpg",
+          image: "/transparent/choux-craquelin-carocakes.png",
           alt: "Choux au craquelin с creme patissiere от CaroCakes",
           url: "https://www.instagram.com/reel/DYj-8X6IPlo/"
         },
         {
           title: "Процесс подготовки торта",
           text: "Этапы из мастерской: от тонких деталей до финальной формы.",
-          image: "/optimized/proces-pregatire-tort-carocakes.jpg",
+          image: "/transparent/proces-pregatire-tort-carocakes.png",
           alt: "Процесс подготовки индивидуального торта CaroCakes",
           url: "https://www.instagram.com/reel/DYT4hdHoIeq/"
         },
         {
           title: "Macarons cube",
           text: "Макаронс в элегантной подаче для сладкого и запоминающегося подарка.",
-          image: "/optimized/macarons-cube-carocakes.jpg",
+          image: "/transparent/macarons-cube-carocakes.png",
           alt: "Macarons cube для сладкого подарка и кенди-бара",
           url: "https://www.instagram.com/reel/DVQ4YCkiLsc/"
         }

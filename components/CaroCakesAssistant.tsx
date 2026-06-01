@@ -138,8 +138,15 @@ export default function CaroCakesAssistant() {
             {t.chat.prompts[agentPromptIndex]}
           </span>
         ) : null}
-        <span className="relative h-44 w-44 overflow-hidden rounded-[2rem] md:h-56 md:w-56">
-          <video src="/caro-agent.mp4" autoPlay muted loop playsInline className="h-full w-full object-cover" />
+        <span className="relative h-36 w-36 overflow-visible md:h-56 md:w-56">
+          <video
+            src="/caro-agent.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-contain mix-blend-screen drop-shadow-[0_18px_34px_rgba(72,37,17,0.28)]"
+          />
           <span className="absolute bottom-4 right-5 h-4 w-4 rounded-full border-2 border-ivory bg-gold shadow-[0_0_18px_rgba(199,154,87,0.85)]" />
         </span>
       </button>

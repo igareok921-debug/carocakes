@@ -73,21 +73,21 @@ export function getSeoPageKind(routeKey: RouteKey): SeoPageKind {
 
 export function getRouteImage(routeKey: RouteKey) {
   const images: Partial<Record<RouteKey, string>> = {
-    "torturi-la-comanda-chisinau": "/optimized/torturi-personalizate-carocakes.jpg",
-    "torturi-personalizate": "/optimized/torturi-personalizate-carocakes.jpg",
-    "torturi-pentru-copii": "/optimized/tort-roz-copii-carocakes.jpg",
-    "torturi-aniversare": "/optimized/torturi-aniversare-carocakes.jpg",
-    "torturi-nunta": "/optimized/torturi-nunta-carocakes.jpg",
-    "torturi-botez": "/optimized/torturi-botez-carocakes.jpg",
-    "torturi-minimaliste": "/optimized/torturi-minimaliste-carocakes.jpg",
-    "torturi-luxury": "/optimized/torturi-luxury-carocakes.jpg",
-    "candy-bar": "/optimized/candy-bar-carocakes.jpg",
-    macarons: "/optimized/macarons-carocakes.jpg",
-    cupcakes: "/optimized/cupcakes-carocakes.jpg",
-    "prajituri-individuale": "/optimized/prajituri-individuale-carocakes.jpg",
-    "biscuiti-fini": "/optimized/biscuiti-fini-carocakes.jpg",
-    galerie: "/optimized/tort-luxury-auriu-carocakes.jpg",
-    "preturi-torturi-la-comanda": "/optimized/tort-aniversar-statement-carocakes.jpg"
+    "torturi-la-comanda-chisinau": "/transparent/torturi-personalizate-carocakes.png",
+    "torturi-personalizate": "/transparent/torturi-personalizate-carocakes.png",
+    "torturi-pentru-copii": "/transparent/tort-roz-copii-carocakes.png",
+    "torturi-aniversare": "/transparent/torturi-aniversare-carocakes.png",
+    "torturi-nunta": "/transparent/torturi-nunta-carocakes.png",
+    "torturi-botez": "/transparent/torturi-botez-carocakes.png",
+    "torturi-minimaliste": "/transparent/torturi-minimaliste-carocakes.png",
+    "torturi-luxury": "/transparent/torturi-luxury-carocakes.png",
+    "candy-bar": "/transparent/candy-bar-carocakes.png",
+    macarons: "/transparent/macarons-carocakes.png",
+    cupcakes: "/transparent/cupcakes-carocakes.png",
+    "prajituri-individuale": "/transparent/prajituri-individuale-carocakes.png",
+    "biscuiti-fini": "/transparent/biscuiti-fini-carocakes.png",
+    galerie: "/transparent/tort-luxury-auriu-carocakes.png",
+    "preturi-torturi-la-comanda": "/transparent/tort-aniversar-statement-carocakes.png"
   };
 
   return images[routeKey] || "/og-carocakes.png";
@@ -209,7 +209,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Tort luxury cu decor auriu",
       category: "Torturi luxury",
       description: "Tort statement pentru evenimente în Chișinău, cu volum, accente metalice și decor personalizat.",
-      image: "/optimized/tort-luxury-auriu-carocakes.jpg",
+      image: "/transparent/tort-luxury-auriu-carocakes.png",
       alt: "Tort luxury cu decor auriu creat de CaroCakes în Chișinău",
       tags: ["tort luxury", "tort personalizat", "Chișinău"],
       language: "ro"
@@ -218,7 +218,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Tort aniversar statement",
       category: "Torturi aniversare",
       description: "Design aniversar cu contrast, detalii premium și compoziție adaptată momentului.",
-      image: "/optimized/tort-aniversar-statement-carocakes.jpg",
+      image: "/transparent/tort-aniversar-statement-carocakes.png",
       alt: "Tort aniversar personalizat statement în Chișinău",
       tags: ["tort aniversar", "decor premium", "la comandă"],
       language: "ro"
@@ -227,7 +227,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Tort roz pentru copii",
       category: "Torturi pentru copii",
       description: "Decor delicat, flori roz și atmosferă caldă pentru aniversări de familie.",
-      image: "/optimized/tort-roz-copii-carocakes.jpg",
+      image: "/transparent/tort-roz-copii-carocakes.png",
       alt: "Tort pentru copii roz cu flori creat de CaroCakes",
       tags: ["tort copii", "aniversare", "roz"],
       language: "ro"
@@ -236,7 +236,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Tort pentru nuntă",
       category: "Torturi pentru nuntă",
       description: "Tort elegant pentru nuntă, cu flori delicate și proporții potrivite evenimentului.",
-      image: "/optimized/torturi-nunta-carocakes.jpg",
+      image: "/transparent/torturi-nunta-carocakes.png",
       alt: "Tort elegant pentru nuntă în Chișinău cu decor floral",
       tags: ["tort nuntă", "flori", "elegant"],
       language: "ro"
@@ -245,7 +245,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Candy bar cu deserturi fine",
       category: "Candy bar",
       description: "Masă dulce cu macarons, cupcakes, prăjituri individuale și biscuiți fini pentru evenimente.",
-      image: "/optimized/candy-bar-carocakes.jpg",
+      image: "/transparent/candy-bar-carocakes.png",
       alt: "Candy bar pentru evenimente în Chișinău cu deserturi fine",
       tags: ["candy bar", "macarons", "cupcakes"],
       language: "ro"
@@ -256,7 +256,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Luxury торт с золотым декором",
       category: "Luxury торты",
       description: "Эффектный торт для событий в Кишиневе с объемом, металлическими акцентами и индивидуальным декором.",
-      image: "/optimized/tort-luxury-auriu-carocakes.jpg",
+      image: "/transparent/tort-luxury-auriu-carocakes.png",
       alt: "Luxury торт с золотым декором от CaroCakes в Кишиневе",
       tags: ["luxury торт", "индивидуальный торт", "Кишинев"],
       language: "ru"
@@ -265,7 +265,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Торт на день рождения",
       category: "Торты на день рождения",
       description: "Контрастный праздничный дизайн с премиальными деталями и вкусом под событие.",
-      image: "/optimized/tort-aniversar-statement-carocakes.jpg",
+      image: "/transparent/tort-aniversar-statement-carocakes.png",
       alt: "Индивидуальный торт на день рождения в Кишиневе",
       tags: ["день рождения", "торт на заказ", "декор"],
       language: "ru"
@@ -274,7 +274,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Розовый детский торт",
       category: "Детские торты",
       description: "Нежный декор, розовые цветы и теплая атмосфера для семейного праздника.",
-      image: "/optimized/tort-roz-copii-carocakes.jpg",
+      image: "/transparent/tort-roz-copii-carocakes.png",
       alt: "Розовый детский торт с цветами от CaroCakes",
       tags: ["детский торт", "день рождения", "розовый"],
       language: "ru"
@@ -283,7 +283,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Свадебный торт",
       category: "Свадебные торты",
       description: "Элегантный свадебный торт с нежными цветами и пропорциями под стиль события.",
-      image: "/optimized/torturi-nunta-carocakes.jpg",
+      image: "/transparent/torturi-nunta-carocakes.png",
       alt: "Элегантный свадебный торт в Кишиневе с цветочным декором",
       tags: ["свадебный торт", "цветы", "элегантный"],
       language: "ru"
@@ -292,7 +292,7 @@ export const galleryItems: Record<Locale, SeoGalleryItem[]> = {
       title: "Candy bar с десертами",
       category: "Candy bar",
       description: "Сладкий стол с макаронс, капкейками, индивидуальными десертами и печеньем для события.",
-      image: "/optimized/candy-bar-carocakes.jpg",
+      image: "/transparent/candy-bar-carocakes.png",
       alt: "Candy bar в Кишиневе с макаронс и десертами",
       tags: ["candy bar", "макаронс", "капкейки"],
       language: "ru"
