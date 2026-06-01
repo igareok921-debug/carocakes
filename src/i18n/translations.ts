@@ -92,9 +92,8 @@ export type Translation = {
     eyebrow: string;
     title: string;
     intro: string;
-    cardText: string;
     cardBadge: string;
-    items: Array<{ title: string; image: string; alt: string }>;
+    items: Array<{ title: string; description: string; image: string; alt: string }>;
   };
   dessertsSection: {
     eyebrow: string;
@@ -605,15 +604,44 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "Torturi personalizate",
       title: "Torturi create pentru emoția momentului",
       intro: "Transformăm ideea ta într-un tort la comandă în Chișinău, cu texturi fine, gust echilibrat și detalii couture.",
-      cardText: "Compoziții fine, proporții elegante și decor adaptat poveștii tale.",
       cardBadge: "CaroCakes atelier",
       items: [
-        { title: "Torturi aniversare", image: "/transparent/torturi-aniversare-carocakes.png", alt: "Tort aniversar personalizat creat de CaroCakes în Chișinău" },
-        { title: "Torturi pentru nuntă", image: "/transparent/torturi-nunta-carocakes.png", alt: "Tort elegant pentru nuntă în Chișinău cu flori delicate" },
-        { title: "Torturi pentru botez", image: "/transparent/torturi-botez-carocakes.png", alt: "Tort pentru botez personalizat în Chișinău" },
-        { title: "Torturi personalizate", image: "/transparent/torturi-personalizate-carocakes.png", alt: "Tort personalizat la comandă în Chișinău" },
-        { title: "Torturi minimaliste", image: "/transparent/torturi-minimaliste-carocakes.png", alt: "Tort minimalist la comandă creat de CaroCakes" },
-        { title: "Torturi luxury", image: "/transparent/torturi-luxury-carocakes.png", alt: "Tort luxury pentru eveniment special în Chișinău" }
+        {
+          title: "Torturi aniversare",
+          description: "Create pentru momente de bucurie, cu design personalizat și gusturi care aduc oamenii împreună.",
+          image: "/transparent/torturi-aniversare-carocakes.png",
+          alt: "Tort aniversar personalizat creat de CaroCakes în Chișinău"
+        },
+        {
+          title: "Torturi pentru nuntă",
+          description: "Eleganță, rafinament și detalii atent alese pentru una dintre cele mai importante zile din viață.",
+          image: "/transparent/torturi-nunta-carocakes.png",
+          alt: "Tort elegant pentru nuntă în Chișinău cu flori delicate"
+        },
+        {
+          title: "Torturi pentru botez",
+          description: "Delicate și pline de emoție, realizate pentru primele amintiri ale celor mici.",
+          image: "/transparent/torturi-botez-carocakes.png",
+          alt: "Tort pentru botez personalizat în Chișinău"
+        },
+        {
+          title: "Torturi personalizate",
+          description: "Fiecare tort este conceput de la zero pentru povestea, stilul și preferințele tale.",
+          image: "/transparent/torturi-personalizate-carocakes.png",
+          alt: "Tort personalizat la comandă în Chișinău"
+        },
+        {
+          title: "Torturi minimaliste",
+          description: "Linii curate, detalii discrete și un design modern care impresionează prin simplitate.",
+          image: "/transparent/torturi-minimaliste-carocakes.png",
+          alt: "Tort minimalist la comandă creat de CaroCakes"
+        },
+        {
+          title: "Torturi luxury",
+          description: "Piese de colecție comestibile, create pentru evenimente exclusiviste și apariții spectaculoase.",
+          image: "/transparent/torturi-luxury-carocakes.png",
+          alt: "Tort luxury pentru eveniment special în Chișinău"
+        }
       ]
     },
     dessertsSection: {
@@ -1129,15 +1157,44 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "Торты на заказ",
       title: "Торты, созданные для эмоции момента",
       intro: "Превращаем вашу идею в индивидуальный торт в Кишиневе: тонкие текстуры, сбалансированный вкус и аккуратные детали.",
-      cardText: "Тонкие композиции, элегантные пропорции и декор, адаптированный под вашу историю.",
       cardBadge: "CaroCakes atelier",
       items: [
-        { title: "Торты на день рождения", image: "/transparent/torturi-aniversare-carocakes.png", alt: "Торт на день рождения от CaroCakes в Кишиневе" },
-        { title: "Свадебные торты", image: "/transparent/torturi-nunta-carocakes.png", alt: "Элегантный свадебный торт в Кишиневе с нежными цветами" },
-        { title: "Торты на крещение", image: "/transparent/torturi-botez-carocakes.png", alt: "Индивидуальный торт на крещение в Кишиневе" },
-        { title: "Индивидуальные торты", image: "/transparent/torturi-personalizate-carocakes.png", alt: "Индивидуальный торт на заказ в Кишиневе" },
-        { title: "Минималистичные торты", image: "/transparent/torturi-minimaliste-carocakes.png", alt: "Минималистичный торт на заказ от CaroCakes" },
-        { title: "Luxury торты", image: "/transparent/torturi-luxury-carocakes.png", alt: "Luxury торт для особого события в Кишиневе" }
+        {
+          title: "Торты на день рождения",
+          description: "Созданы для радостных моментов, с индивидуальным дизайном и вкусами, которые объединяют близких.",
+          image: "/transparent/torturi-aniversare-carocakes.png",
+          alt: "Торт на день рождения от CaroCakes в Кишиневе"
+        },
+        {
+          title: "Свадебные торты",
+          description: "Элегантность, утонченность и продуманные детали для одного из самых важных дней в жизни.",
+          image: "/transparent/torturi-nunta-carocakes.png",
+          alt: "Элегантный свадебный торт в Кишиневе с нежными цветами"
+        },
+        {
+          title: "Торты на крещение",
+          description: "Нежные и наполненные эмоцией, созданные для первых семейных воспоминаний малыша.",
+          image: "/transparent/torturi-botez-carocakes.png",
+          alt: "Индивидуальный торт на крещение в Кишиневе"
+        },
+        {
+          title: "Индивидуальные торты",
+          description: "Каждый торт создается с нуля под вашу историю, стиль и вкусовые предпочтения.",
+          image: "/transparent/torturi-personalizate-carocakes.png",
+          alt: "Индивидуальный торт на заказ в Кишиневе"
+        },
+        {
+          title: "Минималистичные торты",
+          description: "Чистые линии, сдержанные детали и современный дизайн, который впечатляет простотой.",
+          image: "/transparent/torturi-minimaliste-carocakes.png",
+          alt: "Минималистичный торт на заказ от CaroCakes"
+        },
+        {
+          title: "Luxury торты",
+          description: "Съедобные коллекционные работы для эксклюзивных событий и эффектного появления.",
+          image: "/transparent/torturi-luxury-carocakes.png",
+          alt: "Luxury торт для особого события в Кишиневе"
+        }
       ]
     },
     dessertsSection: {

@@ -87,7 +87,14 @@ export function getRouteImage(routeKey: RouteKey) {
     "prajituri-individuale": "/transparent/prajituri-individuale-carocakes.png",
     "biscuiti-fini": "/transparent/biscuiti-fini-carocakes.png",
     galerie: "/transparent/tort-luxury-auriu-carocakes.png",
-    "preturi-torturi-la-comanda": "/transparent/tort-aniversar-statement-carocakes.png"
+    "preturi-torturi-la-comanda": "/transparent/tort-aniversar-statement-carocakes.png",
+    blog: "/blog/blog.png",
+    "blog-cum-alegi-un-tort-personalizat-in-chisinau": "/blog/blog.png",
+    "blog-cu-cat-timp-inainte-comanzi-un-tort": "/blog/blog.png",
+    "blog-tort-pentru-copii-idei-design": "/blog/blog.png",
+    "blog-tort-de-nunta-chisinau-ghid": "/blog/blog.png",
+    "blog-candy-bar-pentru-botez": "/blog/blog.png",
+    "blog-gusturi-de-tort-pentru-evenimente": "/blog/blog.png"
   };
 
   return images[routeKey] || "/og-carocakes.png";

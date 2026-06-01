@@ -150,6 +150,7 @@ export default function LocalizedPage({ params }: LocalizedPageProps) {
   }));
   const pageKind = getSeoPageKind(routeKey);
   const routeImage = getRouteImage(routeKey);
+  const shouldPrioritizeRouteImage = pageKind === "service" || pageKind === "blogIndex" || pageKind === "article";
   const footerLinks = getFooterLinks(locale);
   const currentArticle = getArticle(locale, routeKey);
   const currentFaq = pageKind === "pricing" ? pricingFaq[locale] : serviceFaq[locale];
@@ -319,7 +320,7 @@ export default function LocalizedPage({ params }: LocalizedPageProps) {
           </div>
           <div className="rounded-[2rem] border border-white/70 bg-gradient-to-br from-white/64 to-cream/58 p-6 shadow-velvet">
             <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-[1.4rem] border border-white/70 bg-cream/70">
-              <Image src={routeImage} alt={`${route.heading} - CaroCakes`} fill sizes="(min-width: 768px) 36vw, 90vw" className="object-contain object-center p-4" priority={pageKind === "service"} />
+              <Image src={routeImage} alt={`${route.heading} - CaroCakes`} fill sizes="(min-width: 768px) 36vw, 90vw" className="object-contain object-center p-4" priority={shouldPrioritizeRouteImage} />
             </div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-gold">{t.categoryPage.panelEyebrow}</p>
             <h2 className="mt-4 font-display text-4xl leading-tight">{t.categoryPage.panelTitle}</h2>

@@ -1,11 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, ChevronUp, Instagram, Menu, MessageCircle, Play, X } from "lucide-react";
-import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { type FormEvent, type MouseEvent, type ReactNode, useEffect, useState } from "react";
 import { instagramUrl, tiktokUrl, whatsappNumber } from "@/lib/seo";
 import { flavorsByLocale, getLocalizedPath, getTranslations, localeConfig, locales, type Locale } from "@/src/i18n/translations";
@@ -22,17 +19,7 @@ type ChatMessage = {
 };
 
 function FadeIn({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 34, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-12%" }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 function InstagramBrandIcon({ className = "h-5 w-5" }: { className?: string }) {
@@ -104,12 +91,6 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
   const titleSize = isRu ? "text-4xl md:text-6xl" : "text-5xl md:text-7xl";
   const navTextSize = isRu ? "text-[0.62rem] tracking-[0.1em] lg:text-[0.66rem] lg:tracking-[0.12em]" : "text-[0.64rem] tracking-[0.12em] lg:text-[0.68rem] lg:tracking-[0.14em]";
 
-  const { scrollYProgress } = useScroll();
-  const heroScale = useTransform(scrollYProgress, [0, 0.22], [1, 1.08]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0.55]);
-  const heroCakeY = useTransform(scrollYProgress, [0, 0.18], [0, -90]);
-  const heroCakeRotate = useTransform(scrollYProgress, [0, 0.22], [0, -4]);
-  const heroTextY = useTransform(scrollYProgress, [0, 0.18], [0, 54]);
   const [activeCake, setActiveCake] = useState(0);
   const [eventDate, setEventDate] = useState("");
   const [calendarOpen, setCalendarOpen] = useState(false);
@@ -173,48 +154,33 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
   };
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveCake((current) => (current + 1) % heroCakes.length);
-    }, 2000);
+    const media = window.matchMedia("(min-width: 768px) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+    let timer: number | undefined;
 
-    return () => window.clearInterval(timer);
-  }, [heroCakes.length]);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({ duration: 1.35, smoothWheel: true, wheelMultiplier: 0.78 });
-    let rafId = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
+    const updateAutoplay = () => {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = undefined;
+      }
+      if (media.matches) {
+        timer = window.setInterval(() => {
+          setActiveCake((current) => (current + 1) % heroCakes.length);
+        }, 2400);
+      }
     };
-    rafId = requestAnimationFrame(raf);
 
-    const sections = gsap.utils.toArray<HTMLElement>("[data-cinema]");
-    sections.forEach((section) => {
-      gsap.fromTo(
-        section,
-        { y: 90, scale: 0.96, opacity: 0.35 },
-        {
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          ease: "power3.out",
-          scrollTrigger: { trigger: section, start: "top 86%", end: "top 38%", scrub: 0.8 }
-        }
-      );
-    });
+    updateAutoplay();
+    media.addEventListener("change", updateAutoplay);
 
     return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      if (timer) window.clearInterval(timer);
+      media.removeEventListener("change", updateAutoplay);
     };
-  }, []);
+  }, [heroCakes.length]);
 
   return (
     <main lang={localeConfig[locale].htmlLang} className="relative overflow-hidden">
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-70">
+      <div className="pointer-events-none fixed inset-0 z-0 hidden opacity-70 md:block">
         <div className="absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(217,155,145,0.26),transparent_62%)] blur-3xl" />
         <div className="absolute bottom-0 right-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(199,154,87,0.2),transparent_64%)] blur-3xl" />
       </div>
@@ -222,7 +188,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
       <header className="fixed left-0 right-0 top-0 z-50 px-4 py-4 md:px-8">
         <nav aria-label={t.navigation.aria} className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-gold/25 bg-ivory px-4 py-3 shadow-[0_18px_70px_rgba(20,10,4,0.26)] md:px-6">
           <a href="#acasa" aria-label={t.navigation.homeAria} className="relative flex h-12 w-24 items-center overflow-visible">
-            <Image src="/logo/carocakes-logo-transparent.png" alt={t.hero.logoAlt} fill className="scale-[1.75] object-contain drop-shadow-[0_10px_22px_rgba(72,37,17,0.16)]" priority />
+            <Image src="/logo/carocakes-logo-transparent.png" alt={t.hero.logoAlt} fill sizes="96px" className="scale-[1.75] object-contain drop-shadow-[0_10px_22px_rgba(72,37,17,0.16)]" priority />
           </a>
           <div className={`hidden items-center gap-3 font-bold uppercase text-chocolate md:flex lg:gap-4 ${navTextSize}`}>
             {t.navigation.links.map((link) => (
@@ -264,11 +230,11 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
       </header>
 
       <section id="acasa" className="relative z-10 min-h-screen overflow-hidden px-5 pb-12 pt-28 md:px-10">
-        <motion.div style={{ scale: heroScale, opacity: heroOpacity }} className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,248,238,0.35),rgba(246,230,210,0.66)_38%,rgba(72,37,17,0.12)_100%)]" />
-          <div className="absolute left-1/2 top-[12%] h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(199,154,87,0.24),transparent_68%)] blur-3xl" />
-          <div className="absolute bottom-[-20%] left-1/2 h-[34rem] w-[72rem] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse,rgba(72,37,17,0.18),transparent_66%)] blur-2xl" />
-        </motion.div>
+          <div className="absolute left-1/2 top-[12%] h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(199,154,87,0.2),transparent_68%)] blur-xl md:blur-3xl" />
+          <div className="absolute bottom-[-20%] left-1/2 h-[34rem] w-[72rem] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse,rgba(72,37,17,0.14),transparent_66%)] blur-xl md:blur-2xl" />
+        </div>
 
         <div className="pointer-events-none absolute inset-0 z-10 opacity-60">
           <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-ivory via-ivory/72 to-transparent" />
@@ -277,7 +243,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
         </div>
 
         <div className="relative z-30 mx-auto grid min-h-[calc(100vh-8.75rem)] max-w-7xl items-center gap-8 lg:grid-cols-[0.98fr_1.02fr]">
-          <motion.div style={{ y: heroTextY }} className="relative z-20 w-full max-w-2xl overflow-hidden pt-5 text-left">
+          <div className="relative z-20 w-full max-w-2xl overflow-hidden pt-5 text-left">
             <div className="pointer-events-none absolute -left-7 top-28 hidden h-40 w-px bg-gradient-to-b from-transparent via-gold/70 to-transparent md:block" />
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.12 }} className="mt-5">
               <p className="font-script text-3xl leading-none text-blush md:text-4xl">{t.hero.eyebrow}</p>
@@ -304,9 +270,9 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
                 </div>
               ))}
             </motion.div>
-          </motion.div>
+          </div>
 
-          <motion.div style={{ y: heroCakeY, rotate: heroCakeRotate }} className="relative z-10 mx-auto flex w-full max-w-[38rem] flex-col items-center justify-center pb-12 pt-20 [perspective:1400px] md:flex-row lg:pb-0 lg:pt-20">
+          <div className="relative z-10 mx-auto flex w-full max-w-[38rem] flex-col items-center justify-center pb-12 pt-20 [perspective:1400px] md:flex-row lg:pb-0 lg:pt-20">
             <div className="absolute left-1/2 top-1/2 h-[86%] w-[72%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,248,238,0.95),rgba(217,155,145,0.18)_55%,transparent_72%)] blur-xl" />
             <motion.div
               className="absolute -top-4 left-1/2 z-20 h-28 w-52 -translate-x-1/2 overflow-visible md:-top-6 md:h-32 md:w-60"
@@ -322,6 +288,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
                 src="/logo/carocakes-logo-transparent.png"
                 alt={t.hero.logoAlt}
                 fill
+                sizes="240px"
                 priority
                 className="scale-[1.62] object-contain drop-shadow-[0_24px_48px_rgba(72,37,17,0.24)]"
               />
@@ -336,41 +303,24 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
               transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ scale: 1.025, rotate: 0.4 }}
             >
-              {heroCakes.map((cake, index) => {
-                const isActive = index === activeCake;
-                const offset = index > activeCake ? 1 : -1;
-
-                return (
-                  <motion.div
-                    key={cake.image}
-                    className="absolute inset-3 overflow-hidden rounded-[1.55rem] bg-cream"
-                    initial={false}
-                    animate={{
-                      opacity: isActive ? 1 : 0,
-                      x: isActive ? 0 : offset * 64,
-                      rotateY: isActive ? 0 : offset * 26,
-                      scale: isActive ? 1 : 0.94,
-                      filter: isActive ? "blur(0px)" : "blur(8px)"
-                    }}
-                    transition={{ duration: 0.82, ease: [0.16, 1, 0.3, 1] }}
-                    style={{
-                      transformStyle: "preserve-3d",
-                      zIndex: isActive ? 2 : 1,
-                      pointerEvents: isActive ? "auto" : "none"
-                    }}
-                  >
-                    <Image
-                      src={cake.image}
-                      alt={cake.alt}
-                      fill
-                      priority={index === 0}
-                      sizes="(min-width: 1024px) 480px, 76vw"
-                      className="object-contain object-center"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ganache/16 via-transparent to-white/10" />
-                  </motion.div>
-                );
-              })}
+              <motion.div
+                key={heroCakes[activeCake].image}
+                className="absolute inset-3 overflow-hidden rounded-[1.55rem] bg-cream"
+                initial={{ opacity: 0, x: 24, scale: 0.98 }}
+                animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
+                transition={{ duration: 0.58, ease: [0.16, 1, 0.3, 1] }}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <Image
+                  src={heroCakes[activeCake].image}
+                  alt={heroCakes[activeCake].alt}
+                  fill
+                  priority={activeCake === 0}
+                  sizes="(min-width: 1024px) 480px, 76vw"
+                  className="object-contain object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ganache/16 via-transparent to-white/10" />
+              </motion.div>
 
               <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2 rounded-full border border-white/60 bg-ivory/54 p-2 backdrop-blur-xl">
                 {heroCakes.map((cake, index) => (
@@ -404,7 +354,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
               <p className="text-[0.65rem] uppercase tracking-[0.2em] text-gold md:text-xs md:tracking-[0.24em]">{heroCakes[activeCake].title}</p>
               <p className="mt-2 font-display text-xl leading-tight text-chocolate md:text-2xl">{heroCakes[activeCake].text}</p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
 
         <motion.a href="#signature" aria-label={t.hero.scrollAria} className="absolute bottom-5 left-1/2 z-40 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border border-cocoa/20 bg-white/30 text-cocoa backdrop-blur-xl" animate={{ y: [0, 10, 0] }} transition={{ duration: 2.4, repeat: Infinity }}>
@@ -412,7 +362,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
         </motion.a>
       </section>
 
-      <section id="signature" data-cinema className="relative z-20 px-5 py-24 md:px-10">
+      <section id="signature" className="relative z-20 px-5 py-24 md:px-10">
         <div className="mx-auto max-w-7xl">
           <FadeIn className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
@@ -430,7 +380,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
                     <Image src={item.image} alt={item.alt} fill sizes="(min-width: 768px) 33vw, 90vw" className="object-contain object-center p-2 transition duration-700 group-hover:scale-[1.02]" />
                   </div>
                   <h3 className="font-display text-3xl text-chocolate">{item.title}</h3>
-                  <p className="mt-5 leading-7 text-cocoa/78">{t.signature.cardText}</p>
+                  <p className="mt-5 leading-7 text-cocoa/78">{item.description}</p>
                   <span className="mt-8 inline-flex text-sm uppercase tracking-[0.2em] text-gold">{t.signature.cardBadge}</span>
                 </article>
               </FadeIn>
@@ -439,7 +389,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section data-cinema className="relative z-20 px-5 py-24 md:px-10">
+      <section className="relative z-20 px-5 py-24 md:px-10">
         <div className="mx-auto max-w-7xl">
           <FadeIn className="text-center">
             <p className="mb-4 text-xs uppercase tracking-[0.32em] text-gold">{t.dessertsSection.eyebrow}</p>
@@ -460,7 +410,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section data-cinema className="relative z-20 px-5 py-24 md:px-10">
+      <section className="relative z-20 px-5 py-24 md:px-10">
         <div className="mx-auto max-w-6xl">
           <FadeIn className="mb-14 text-center">
             <p className="mb-4 text-xs uppercase tracking-[0.32em] text-gold">{t.orderSteps.eyebrow}</p>
@@ -483,7 +433,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section id="galerie" data-cinema className="relative z-20 py-24">
+      <section id="galerie" className="relative z-20 py-24">
         <div className="px-5 md:px-10">
           <FadeIn className="mx-auto mb-12 max-w-7xl">
             <div>
@@ -552,7 +502,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section data-cinema className="relative z-20 px-5 py-24 md:px-10">
+      <section className="relative z-20 px-5 py-24 md:px-10">
         <div className="mx-auto max-w-7xl">
           <FadeIn className="mb-12 grid gap-6 md:grid-cols-[0.72fr_1fr] md:items-end">
             <div>
@@ -578,7 +528,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section id="despre" data-cinema className="relative z-20 px-5 py-24 md:px-10 md:py-36">
+      <section id="despre" className="relative z-20 px-5 py-24 md:px-10 md:py-36">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-start">
           <FadeIn>
             <p className="mb-4 text-xs uppercase tracking-[0.32em] text-gold">{t.about.eyebrow}</p>
@@ -603,7 +553,7 @@ export default function CaroCakesExperience({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section id="contact" data-cinema className="relative z-20 px-5 pb-10 pt-32 md:px-10 md:pt-40">
+      <section id="contact" className="relative z-20 px-5 pb-10 pt-32 md:px-10 md:pt-40">
         <div className="relative mx-auto overflow-hidden rounded-[2.2rem] bg-chocolate px-6 pb-12 pt-24 text-ivory shadow-velvet md:px-14 md:pb-16 md:pt-28">
           <div className="absolute inset-x-0 top-0 h-px gold-line" />
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">

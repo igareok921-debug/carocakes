@@ -95,7 +95,7 @@ export default function CaroCakesAssistant() {
               <X size={18} />
             </button>
           </div>
-          <div data-lenis-prevent data-lenis-prevent-wheel className="max-h-[22rem] space-y-3 overflow-y-auto overscroll-contain px-4 py-4">
+          <div className="max-h-[22rem] space-y-3 overflow-y-auto overscroll-contain px-4 py-4">
             {chatMessages.map((message, index) => (
               <div key={`${message.role}-${index}`} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
                 <p className={`max-w-[86%] rounded-[1.1rem] px-4 py-3 text-sm leading-6 ${message.role === "user" ? "bg-chocolate text-ivory" : "bg-cream text-cocoa"}`}>
@@ -139,15 +139,15 @@ export default function CaroCakesAssistant() {
             {t.chat.prompts[agentPromptIndex]}
           </span>
         ) : null}
-        <span className="relative flex h-[4.75rem] w-[4.75rem] items-center justify-center overflow-hidden rounded-[1.35rem] border border-gold/35 bg-ivory shadow-[0_16px_44px_rgba(44,22,12,0.26)] md:hidden">
+        <span className="relative block h-32 w-32 overflow-visible md:hidden">
           <Image
-            src="/logo/carocakes-logo-transparent.png"
+            src="/caro-agent-mobile.png"
             alt=""
             fill
-            sizes="76px"
-            className="scale-[1.75] object-contain p-2"
+            sizes="128px"
+            className="object-contain drop-shadow-[0_16px_30px_rgba(72,37,17,0.28)]"
           />
-          <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-ivory bg-gold shadow-[0_0_18px_rgba(199,154,87,0.85)]" />
+          <span className="absolute bottom-3 right-3 h-4 w-4 rounded-full border-2 border-ivory bg-gold shadow-[0_0_18px_rgba(199,154,87,0.85)]" />
         </span>
         <span className="relative hidden h-56 w-56 overflow-visible md:block">
           <video
@@ -156,6 +156,7 @@ export default function CaroCakesAssistant() {
             muted
             loop
             playsInline
+            preload="none"
             className="h-full w-full object-contain mix-blend-screen drop-shadow-[0_18px_34px_rgba(72,37,17,0.28)]"
           />
           <span className="absolute bottom-4 right-5 h-4 w-4 rounded-full border-2 border-ivory bg-gold shadow-[0_0_18px_rgba(199,154,87,0.85)]" />
