@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type FormEvent } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { LoaderCircle, Send, X } from "lucide-react";
 import { getTranslations, isLocale, type Locale } from "@/src/i18n/translations";
@@ -82,7 +83,7 @@ export default function CaroCakesAssistant() {
   };
 
   return (
-    <div className="fixed bottom-3 right-3 z-[70] flex max-w-[calc(100vw-1.5rem)] flex-col items-end text-left md:bottom-6 md:right-7">
+    <div className="fixed bottom-4 right-4 z-[70] flex max-w-[calc(100vw-2rem)] flex-col items-end text-left md:bottom-6 md:right-7">
       {chatOpen ? (
         <div className="mb-3 w-[min(26rem,calc(100vw-1.5rem))] overflow-hidden rounded-[1.7rem] border border-gold/35 bg-ivory text-chocolate shadow-[0_28px_90px_rgba(44,22,12,0.38)]">
           <div className="flex items-center justify-between gap-3 border-b border-gold/18 bg-gradient-to-r from-chocolate to-cocoa px-4 py-3 text-ivory">
@@ -134,11 +135,21 @@ export default function CaroCakesAssistant() {
         className="flex flex-col items-end transition hover:-translate-y-1"
       >
         {!chatOpen ? (
-          <span className="mb-2 max-w-[12rem] rounded-[1rem] border border-gold/50 bg-chocolate px-3.5 py-2.5 text-sm font-semibold leading-5 text-ivory shadow-[0_18px_60px_rgba(44,22,12,0.36)] md:mb-3 md:max-w-[15rem] md:px-4 md:py-3 md:text-base md:leading-6">
+          <span className="mb-2 max-w-[9.75rem] rounded-[0.95rem] border border-gold/50 bg-chocolate px-3 py-2 text-xs font-semibold leading-5 text-ivory shadow-[0_18px_60px_rgba(44,22,12,0.36)] md:mb-3 md:max-w-[15rem] md:px-4 md:py-3 md:text-base md:leading-6">
             {t.chat.prompts[agentPromptIndex]}
           </span>
         ) : null}
-        <span className="relative h-36 w-36 overflow-visible md:h-56 md:w-56">
+        <span className="relative flex h-[4.75rem] w-[4.75rem] items-center justify-center overflow-hidden rounded-[1.35rem] border border-gold/35 bg-ivory shadow-[0_16px_44px_rgba(44,22,12,0.26)] md:hidden">
+          <Image
+            src="/logo/carocakes-logo-transparent.png"
+            alt=""
+            fill
+            sizes="76px"
+            className="scale-[1.75] object-contain p-2"
+          />
+          <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-ivory bg-gold shadow-[0_0_18px_rgba(199,154,87,0.85)]" />
+        </span>
+        <span className="relative hidden h-56 w-56 overflow-visible md:block">
           <video
             src="/caro-agent.mp4"
             autoPlay
