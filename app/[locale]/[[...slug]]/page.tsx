@@ -159,7 +159,6 @@ export default function LocalizedPage({ params }: LocalizedPageProps) {
   const contactRoute = getSeoRoute(locale, "contact");
   const blogRoute = getSeoRoute(locale, "blog");
   const instagramReels = t.reels.items;
-  const serviceLinks = serviceRouteKeys.slice(0, 6).map((key) => getSeoRoute(locale, key));
   const pageJsonLdGraph: Record<string, unknown>[] = [
     ...getJsonLdGraph(locale, routeKey),
     ...(pageKind === "article" && currentArticle
@@ -580,7 +579,7 @@ export default function LocalizedPage({ params }: LocalizedPageProps) {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 md:justify-end">
-            {[...footerLinks, ...serviceLinks.slice(0, 3).map((item) => ({ label: item.serviceName, routeKey: item.routeKey }))].map((link) => {
+            {footerLinks.map((link) => {
               const linkedRoute = getSeoRoute(locale, link.routeKey);
 
               return (

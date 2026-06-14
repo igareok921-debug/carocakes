@@ -1,4 +1,4 @@
-import type { Locale, RouteKey } from "@/src/i18n/translations";
+import { getSeoRoute, type Locale, type RouteKey } from "@/src/i18n/translations";
 
 export type SeoPageKind = "service" | "pricing" | "gallery" | "blogIndex" | "article" | "info";
 
@@ -511,10 +511,18 @@ export function getArticle(locale: Locale, routeKey: RouteKey) {
 }
 
 export function getFooterLinks(locale: Locale): SeoInternalLink[] {
-  return [
-    { label: locale === "ru" ? "Цены" : "Prețuri", routeKey: "preturi-torturi-la-comanda" },
-    { label: locale === "ru" ? "Галерея" : "Galerie", routeKey: "galerie" },
-    { label: locale === "ru" ? "Блог" : "Blog", routeKey: "blog" },
-    { label: locale === "ru" ? "Контакт" : "Contact", routeKey: "contact" }
+  const routeKeys: RouteKey[] = [
+    "preturi-torturi-la-comanda",
+    ...serviceRouteKeys,
+    "galerie",
+    "blog",
+    ...articleRouteKeys,
+    "despre",
+    "contact"
   ];
+
+  return routeKeys.map((routeKey) => ({
+    label: getSeoRoute(locale, routeKey).heading,
+    routeKey
+  }));
 }
