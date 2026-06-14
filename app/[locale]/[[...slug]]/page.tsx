@@ -254,6 +254,39 @@ export default function LocalizedPage({ params }: LocalizedPageProps) {
                 availability: "https://schema.org/InStock",
                 url: pageUrl,
                 unitText: "kg",
+                shippingDetails: {
+                  "@type": "OfferShippingDetails",
+                  shippingDestination: {
+                    "@type": "DefinedRegion",
+                    addressCountry: "MD",
+                    addressRegion: "Chișinău"
+                  },
+                  deliveryTime: {
+                    "@type": "ShippingDeliveryTime",
+                    handlingTime: {
+                      "@type": "QuantitativeValue",
+                      minValue: 1,
+                      maxValue: 3,
+                      unitCode: "DAY"
+                    },
+                    transitTime: {
+                      "@type": "QuantitativeValue",
+                      minValue: 0,
+                      maxValue: 1,
+                      unitCode: "DAY"
+                    }
+                  },
+                  shippingRate: {
+                    "@type": "MonetaryAmount",
+                    value: "0",
+                    currency: "MDL"
+                  }
+                },
+                hasMerchantReturnPolicy: {
+                  "@type": "MerchantReturnPolicy",
+                  applicableCountry: "MD",
+                  returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted"
+                },
                 seller: {
                   "@id": `${siteUrl}/#bakery`
                 }
