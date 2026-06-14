@@ -234,15 +234,29 @@ export default function LocalizedPage({ params }: LocalizedPageProps) {
             "@id": `${pageUrl}#flavor-prices`,
             name: locale === "ru" ? "Цены на вкусы тортов за 1 кг" : "Prețuri gusturi de tort per 1 kg",
             itemListElement: cakeFlavorPrices[locale].map((item) => ({
-              "@type": "Offer",
-              name: item.flavor,
-              price: item.price,
-              priceCurrency: "MDL",
-              unitText: "kg",
-              itemOffered: {
-                "@type": "Product",
-                name: `${item.flavor} - CaroCakes`,
-                category: locale === "ru" ? "Торт на заказ" : "Tort la comandă"
+              "@type": "Product",
+              "@id": `${pageUrl}#product-${encodeURIComponent(item.flavor.toLowerCase())}`,
+              name: `${item.flavor} - CaroCakes`,
+              description:
+                locale === "ru"
+                  ? `Торт ${item.flavor} на заказ в Кишиневе, приготовленный вручную CaroCakes. Цена указана за 1 кг.`
+                  : `Tort ${item.flavor} la comandă în Chișinău, preparat artizanal de CaroCakes. Prețul este indicat per 1 kg.`,
+              image: `${siteUrl}${routeImage}`,
+              category: locale === "ru" ? "Торт на заказ" : "Tort la comandă",
+              brand: {
+                "@type": "Brand",
+                name: "CaroCakes"
+              },
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "MDL",
+                price: String(item.price),
+                availability: "https://schema.org/InStock",
+                url: pageUrl,
+                unitText: "kg",
+                seller: {
+                  "@id": `${siteUrl}/#bakery`
+                }
               }
             }))
           }
