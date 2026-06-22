@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   publisher: siteName,
   keywords: seoKeywords,
   alternates: {
-    canonical: "/ro",
+    canonical: `${siteUrl}/ro`,
     languages: {
-      "ro-MD": "/ro",
-      "ru-MD": "/ru",
-      "x-default": "/ro"
+      "ro-MD": `${siteUrl}/ro`,
+      "ru-MD": `${siteUrl}/ru`,
+      "x-default": `${siteUrl}/ro`
     }
   },
   robots: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: homeTitle,
     description: homeDescription,
-    url: "/ro",
+    url: `${siteUrl}/ro`,
     siteName,
     type: "website",
     locale: "ro_MD",

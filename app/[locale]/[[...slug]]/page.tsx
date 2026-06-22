@@ -83,13 +83,13 @@ export function generateMetadata({ params }: LocalizedPageProps): Metadata {
     description: route.description,
     keywords: route.keywords,
     alternates: {
-      canonical: route.path,
+      canonical: absoluteUrl(route.path),
       languages: Object.fromEntries(Object.entries(alternates).map(([key, path]) => [key, absoluteUrl(path)]))
     },
     openGraph: {
       title: route.title,
       description: route.description,
-      url: route.path,
+      url: absoluteUrl(route.path),
       siteName,
       type: "website",
       locale: localeConfig[locale].ogLocale,
@@ -233,6 +233,7 @@ export default function LocalizedPage({ params }: LocalizedPageProps) {
             "@id": `${pageUrl}#flavor-prices`,
             name: locale === "ru" ? "Цены на вкусы тортов за 1 кг" : "Prețuri gusturi de tort per 1 kg",
             itemListElement: cakeFlavorPrices[locale].map((item) => ({
+              "@context": "https://schema.org",
               "@type": "Product",
               "@id": `${pageUrl}#product-${encodeURIComponent(item.flavor.toLowerCase())}`,
               name: `${item.flavor} - CaroCakes`,
