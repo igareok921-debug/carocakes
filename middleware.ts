@@ -1,6 +1,18 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+// Set this to false when the website is ready to be public again.
+const MAINTENANCE_MODE = true;
+
 export function middleware(request: NextRequest) {
+  if (MAINTENANCE_MODE && request.nextUrl.pathname !== "/maintenance") {
+    return NextResponse.rewrite(new URL("/maintenance", request.url), {
+      status: 503,
+      headers: {
+        "Retry-After": "3600"
+      }
+    });
+  }
+
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-pathname", request.nextUrl.pathname);
 
@@ -12,5 +24,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|.*\\..*).*)"]
+  matcher: ["/((?!_next/static|_next/image|.*\\..*).*)"]
 };
