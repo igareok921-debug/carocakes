@@ -74,9 +74,19 @@ export const viewport: Viewport = {
   colorScheme: "light"
 };
 
-function getHtmlLang() {
+function getPageContext() {
   const pathname = headers().get("x-pathname") || "";
-  return pathname.startsWith("/ru") ? "ru" : "ro";
+
+  return {
+    isMaintenancePage: pathname === "/maintenance",
+    lang: pathname.startsWith("/ru") ? "ru" : "ro"
+  };
+}
+
+function getHtmlLang() {
+  const { lang } = getPageContext();
+
+  return lang;
 }
 
 export default function RootLayout({
@@ -84,11 +94,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { isMaintenancePage } = getPageContext();
+
   return (
     <html lang={getHtmlLang()}>
       <body>
         {children}
-        <CaroCakesAssistant />
+        {!isMaintenancePage && <CaroCakesAssistant />}
       </body>
     </html>
   );
