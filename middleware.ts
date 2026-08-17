@@ -5,10 +5,16 @@ const MAINTENANCE_MODE = true;
 
 export function middleware(request: NextRequest) {
   if (MAINTENANCE_MODE && request.nextUrl.pathname !== "/maintenance") {
+    const maintenanceHeaders = new Headers(request.headers);
+    maintenanceHeaders.set("x-maintenance-mode", "true");
+
     return NextResponse.rewrite(new URL("/maintenance", request.url), {
       status: 503,
       headers: {
         "Retry-After": "3600"
+      },
+      request: {
+        headers: maintenanceHeaders
       }
     });
   }

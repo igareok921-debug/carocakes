@@ -78,7 +78,8 @@ function getPageContext() {
   const pathname = headers().get("x-pathname") || "";
 
   return {
-    isMaintenancePage: pathname === "/maintenance",
+    isMaintenancePage:
+      pathname === "/maintenance" || headers().get("x-maintenance-mode") === "true",
     lang: pathname.startsWith("/ru") ? "ru" : "ro"
   };
 }
